@@ -34,9 +34,7 @@ response_upload = youtube.videos().insert(
     media_body=mediaFile
 ).execute()
 
-"""
 youtube.thumbnails().set(
     videoId=response_upload.get('id'),
     media_body=MediaFileUpload('/root/youtube/thumbnail.png', chunksize=1024*1024, resumable=True)
 ).execute()
-"""
