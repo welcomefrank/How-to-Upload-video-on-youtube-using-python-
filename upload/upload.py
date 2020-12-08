@@ -16,8 +16,7 @@ request_body = {
     'snippet': {
         'categoryI': 19,
         'title': 'Upload Testing This is Private Video ',
-        'description': 'Upload TEsting This is Private Video',
-        'tags': ['Python', 'Youtube API', 'Google']
+        'description': 'Upload TEsting This is Private Video'
     },
     'status': {
         'privacyStatus': 'private',
@@ -38,6 +37,6 @@ response_upload = youtube.videos().insert(
 """
 youtube.thumbnails().set(
     videoId=response_upload.get('id'),
-    media_body=MediaFileUpload('/root/youtube/thumbnail.png')
+    media_body=MediaFileUpload('/root/youtube/thumbnail.png', chunksize=1024*1024, resumable=True)
 ).execute()
 """
